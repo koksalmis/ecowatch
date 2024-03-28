@@ -32,20 +32,22 @@ const SSEListener = () => {
 
   return (
     <div>
-      <h2>JSON Data Table</h2>
-      {eventData ? (
+      <h2 className="text-center">YATIRIM BABY !</h2>
+      {eventData && eventData.M && eventData.M[0] && eventData.M[0].A ? (
         <table>
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Value</th>
+              <th className="text-center pr-10">YATIRIM</th>
+              <th className="text-center pr-10">ALIS FIYATI</th>
+              <th className="text-center pr-10">SATIS FIYATI</th>
             </tr>
           </thead>
           <tbody>
-            {Object.entries(eventData).map(([key, value]) => (
-              <tr key={key}>
-                <td>{key}</td>
-                <td>{JSON.stringify(value)}</td>
+            {Object.keys(eventData.M[0].A[0]).map((key, index) => (
+              <tr key={index}>
+                <td className='mx-5'>{eventData.M[0].A[0][key].p}</td>
+                <td className='mx-5'>{eventData.M[0].A[0][key].a}</td>
+                <td className='mx-5'>{eventData.M[0].A[0][key].s}</td>
               </tr>
             ))}
           </tbody>
